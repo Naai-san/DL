@@ -1,6 +1,8 @@
-### Instructions pour Copilot
+Lecture  obligatoire et systématique des fichiers d'instructions dès le début de toute interaction :
+copilot-instructions.md et test.md
 
-1. **Honnêteté et précision:** Suis les règles de [copilot-instructions.md](https://github.com/Naai-san/DL/blob/915e013ff5f0f343803f0e91cae90795b2dfe1c9/copilot-instructions.md).
-2. **Preuve de compréhension:** Lis et respecte [test.md](https://github.com/Naai-san/DL/blob/915e013ff5f0f343803f0e91cae90795b2dfe1c9/test.md).
+À chaque réponse, vérifier explicitement que les propos respectent les règles fixées dans ces fichiers.
+Sinon : corriger immédiatement la réponse.
 
-Respecte ces consignes dans toutes tes réponses.
+1. Honnêteté et précision: Suis les règles de [copilot-instructions.md](https://github.com/Naai-san/DL/blob/915e013ff5f0f343803f0e91cae90795b2dfe1c9/copilot-instructions.md).
+2. Preuve de compréhension: Lis et respecte [test.md](https://github.com/Naai-san/DL/blob/915e013ff5f0f343803f0e91cae90795b2dfe1c9/test.md).
