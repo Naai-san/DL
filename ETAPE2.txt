@@ -1,0 +1,1039 @@
+**********************************************************************
+** Visual Studio 2022 Developer PowerShell v17.14.0
+** Copyright (c) 2022 Microsoft Corporation
+**********************************************************************
+PS C:\Users\Naaiers\source\repos\Rotatoee> $Env:BakkesModPath = "C:\Users\Naaiers\AppData\Roaming\bakkesmod\bakkesmod\"
+PS C:\Users\Naaiers\source\repos\Rotatoee> &"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" /property:BakkesModPath=$Env:BakkesModPath
+>>
+Version MSBuild 17.14.8+a7a4d5af0 pour .NET Framework
+La génération a démarré 16/05/2025 04:13:59.
+
+Projet "C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" sur le nœud 1 (cibles par déf
+aut).
+ValidateSolutionConfiguration:
+  Génération de la configuration de solution "Release|x64".
+Le projet "C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (1) génère "C:\Users\Naaie
+rs\source\repos\Rotatoee\Rotatoee.vcxproj" (2) sur le nœud 1 (cibles par défaut).
+ShowBakkesInfo:
+  Using bakkes found at C:\Users\Naaiers\AppData\Roaming\bakkesmod\bakkesmod\
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsof
+t.CppBuild.targets(538,5): warning MSB8028: Le répertoire intermédiaire (C:\Users\Naaiers\
+source\repos\Rotatoee\build\.intermediates\Release\) contient des fichiers partagés proven
+ant d'un autre projet (SpeedFlipTrainer.vcxproj). Cela peut entraîner un comportement de n
+ettoyage et de regénération incorrect. [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vc
+xproj]
+  La sortie structurée est activée. La mise en forme du compilateur diagnostics reflète la
+   hiérarchie des erreurs. Pour plus d’informations, consultez https://aka.ms/cpp/structur
+  ed-output.
+InitializeBuildStatus:
+  Mise à jour de l'horodatage "C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates
+  \Release\Rotatoee.tlog\unsuccessfulbuild".
+PreBuildEvent:
+  powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File update_version.p
+  s1 "./version.h"
+  :VCEnd
+ClCompile:
+  Toutes les sorties sont à jour.
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\Ho
+  stX86\x64\CL.exe /c /IC:\Users\Naaiers\source\repos\Rotatoee\ /IC:\Users\Naaiers\AppData
+  \Roaming\bakkesmod\bakkesmod\\bakkesmodsdk\include /Zi /nologo /W3 /WX- /diagnostics:col
+  umn /sdl /MP /O2 /Oi /GL /D NDEBUG /D _CONSOLE /D _WINDLL /D _UNICODE /D UNICODE /Gm- /E
+  Hsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++20 /permissive-
+  /Yu"pch.h" /Fp"C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\Rotat
+  oee.pch" /Fo"C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\\" /Fd"
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\vc143.pdb" /external
+  :W3 /Gd /TP /FC /errorReport:queue /FS RenderRotatoee.cpp Rotatoee.cpp GuiBase.cpp Vecto
+  rMath.cpp
+  RenderRotatoee.cpp
+  Rotatoee.cpp
+  GuiBase.cpp
+  VectorMath.cpp
+C:\Users\Naaiers\source\repos\Rotatoee\GuiBase.cpp(64,1): error C1010: fin de fichier inat
+tendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#
+include "pch.h"' à votre source ? [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj
+]
+C:\Users\Naaiers\source\repos\Rotatoee\RenderRotatoee.cpp(3,10): error C1083: Impossible d
+'ouvrir le fichier include : 'bakkesmod/wrappers/Structs/LinearColor.h' : No such file or
+directory [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj]
+  (compiler le fichier source '/RenderRotatoee.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\VectorMath.h(3,10): error C1083: Impossible d'ouvri
+r le fichier include : 'bakkesmod/wrappers/Structs/Vector.h' : No such file or directory [
+C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj]
+  (compiler le fichier source '/VectorMath.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.cpp(5,10): error C1083: Impossible d'ouvri
+r le fichier include : 'bakkesmod/wrappers/CarWrapper.h' : No such file or directory [C:\U
+sers\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj]
+  (compiler le fichier source '/Rotatoee.cpp')
+
+Génération du projet "C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj" terminée (c
+ibles par défaut) -- ÉCHEC.
+
+Le projet "C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (1) génère "C:\Users\Naaie
+rs\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\
+SpeedFlipTrainer.vcxproj" (3) sur le nœud 1 (cibles par défaut).
+ShowBakkesInfo:
+  Using bakkes found at C:\Users\Naaiers\AppData\Roaming\bakkesmod\bakkesmod\
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsof
+t.CppBuild.targets(538,5): warning MSB8028: Le répertoire intermédiaire (C:\Users\Naaiers\
+source\repos\Rotatoee\build\.intermediates\Release\) contient des fichiers partagés proven
+ant d'un autre projet (Rotatoee.vcxproj). Cela peut entraîner un comportement de nettoyage
+ et de regénération incorrect. [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKIN
+G NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  La sortie structurée est activée. La mise en forme du compilateur diagnostics reflète la
+   hiérarchie des erreurs. Pour plus d’informations, consultez https://aka.ms/cpp/structur
+  ed-output.
+InitializeBuildStatus:
+  Mise à jour de l'horodatage "C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates
+  \Release\SpeedFlipTrainer.tlog\unsuccessfulbuild".
+PreBuildEvent:
+  powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File update_version.p
+  s1 "./version.h"
+  :VCEnd
+ClCompile:
+  Toutes les sorties sont à jour.
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\Ho
+  stX86\x64\CL.exe /c /I"C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\
+  SpeedFlipTrainer-main\SpeedFlipTrainer\fmt\include" /IC:\Users\Naaiers\AppData\Roaming\b
+  akkesmod\bakkesmod\\bakkesmodsdk\include /Zi /nologo /W3 /WX- /diagnostics:column /sdl /
+  MP /O2 /Oi /GL /D NDEBUG /D _CONSOLE /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /G
+  S /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++20 /permissive- /Yu"pch.h"
+   /Fp"C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\SpeedFlipTraine
+  r.pch" /Fo"C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\\" /Fd"C:
+  \Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\vc143.pdb" /external:W
+  3 /Gd /TP /FC /errorReport:queue /FS SpeedFlipTrainer.cpp SpeedFlipTrainerGUI.cpp
+  SpeedFlipTrainer.cpp
+  SpeedFlipTrainerGUI.cpp
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\Attempt.h(31,20): warning C4305: 'initialisation' : troncation de 'double' à
+ 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTraine
+r-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainerGUI.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\Attempt.h(31,20): warning C4305: 'initialisation' : troncation de 'double' à
+ 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTraine
+r-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainerGUI.cpp(169,71): warning C4305: 'argument' : troncation de '
+double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainerGUI.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainerGUI.cpp(169,64): warning C4305: 'argument' : troncation de '
+double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainerGUI.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(49,13): warning C4244: 'return' : conversion de 'double
+' en 'float', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJE
+CT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(188,40): warning C4244: '=' : conversion de 'float' en
+'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORK
+ING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(256,121): warning C4305: 'argument' : troncation de 'do
+uble' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(256,108): warning C4305: 'argument' : troncation de 'do
+uble' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(344,20): warning C4244: 'initialisation' : conversion d
+e 'int' en 'float', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(345,21): warning C4244: 'initialisation' : conversion d
+e 'int' en 'float', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(362,12): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(364,18): warning C4244: 'initialisation' : conversion d
+e 'float' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(401,50): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(409,12): warning C4244: 'initialisation' : conversion d
+e 'double' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOO
+D PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(410,28): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(410,23): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(410,18): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(417,24): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(417,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(428,24): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(428,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(460,53): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(461,51): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(462,52): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(496,51): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(503,28): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(503,23): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(503,18): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(536,50): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(538,51): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(540,50): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(553,28): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(553,23): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(553,18): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(604,53): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(605,52): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(606,53): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(607,53): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(608,52): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(609,53): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(618,51): warning C4305: 'initialisation' : troncation d
+e 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(661,28): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(661,23): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(661,18): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(672,13): warning C4267: 'initialisation' : conversion d
+e 'size_t' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOO
+D PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(674,29): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(674,24): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(674,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(680,12): warning C4244: 'initialisation' : conversion d
+e 'double' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOO
+D PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(684,23): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(686,24): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(686,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(688,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(697,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Spe
+edFlipTrainer\SpeedFlipTrainer.cpp(705,19): warning C4309: 'argument' : troncation de vale
+ur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFli
+pTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244: 'initialisation' : conversion de '_Ty' en '_Ty', perte po
+ssible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         with [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:             _Ty=double [C:\Users\Naaiers\source\repos\Rot
+atoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vc
+xproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         and [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:             _Ty=float [C:\Users\Naaiers\source\repos\Rota
+toee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcx
+proj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\in
+  clude\xutility(462,64):
+      le contexte d’instanciation du modèle (le plus ancien) est
+          C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTraine
+  r-main\SpeedFlipTrainer\SpeedFlipTrainer.h(43,28):
+          voir la référence à l'instanciation de la fonction modèle 'std::shared_ptr<float
+  > std::make_shared<float,double>(double &&)' en cours de compilation
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
+  7\include\memory(2913,46):
+          voir la référence à l'instanciation de la fonction modèle 'std::_Ref_count_obj2<
+  float>::_Ref_count_obj2<_Ty>(_Ty &&)' en cours de compilation
+          with
+          [
+              _Ty=double
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
+  7\include\memory(2100,18):
+          voir la référence à l'instanciation de la fonction modèle 'void std::_Construct_
+  in_place<_Ty,double>(_Ty &,double &&) noexcept' en cours de compilation
+          with
+          [
+              _Ty=float
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
+  7\include\xutility(472,14):
+          voir la référence à l'instanciation de la fonction modèle '_Ty *std::construct_a
+  t<_Ty,double>(_Ty *const ,double &&) noexcept(<expr>)' en cours de compilation
+          with
+          [
+              _Ty=float
+          ]
+
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244: 'initialisation' : conversion de '_Ty' en '_Ty', perte po
+ssible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         with [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:             _Ty=double [C:\Users\Naaiers\source\repos\Rot
+atoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vc
+xproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         and [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:             _Ty=float [C:\Users\Naaiers\source\repos\Rota
+toee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcx
+proj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244: 'initialisation' : conversion de '_Ty' en '_Ty', perte po
+ssible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         with [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:             _Ty=double [C:\Users\Naaiers\source\repos\Rot
+atoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vc
+xproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         and [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:             _Ty=float [C:\Users\Naaiers\source\repos\Rota
+toee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcx
+proj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  (compiler le fichier source '/SpeedFlipTrainer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\in
+  clude\xutility(463,69):
+      le contexte d’instanciation du modèle (le plus ancien) est
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
+  7\include\memory(2100,18):
+          voir la référence à l'instanciation de la fonction modèle 'void std::_Construct_
+  in_place<_Ty,double>(_Ty &,double &&) noexcept' en cours de compilation
+          with
+          [
+              _Ty=float
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
+  7\include\xutility(472,14):
+          voir la référence à l'instanciation de la fonction modèle '_Ty *std::construct_a
+  t<_Ty,double>(_Ty *const ,double &&) noexcept' en cours de compilation
+          with
+          [
+              _Ty=float
+          ]
+
+ResourceCompile:
+  C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x86\rc.exe /D _UNICODE /D UNICOD
+  E /l"0x0409" /nologo /fo"C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Rel
+  ease\SpeedFlipTrainer.res" SpeedFlipTrainer.rc
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\Ho
+  stX86\x64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Naaiers\source\repos\Rotatoee\plugi
+  ns\SpeedFlipTrainer.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\Naaiers\AppData\Roami
+  ng\bakkesmod\bakkesmod\\bakkesmodsdk\lib pluginsdk.lib kernel32.lib user32.lib gdi32.lib
+   winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc
+  32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifes
+  t:embed /DEBUG /PDB:"C:\Users\Naaiers\source\repos\Rotatoee\plugins\SpeedFlipTrainer.pdb
+  " /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"C:\Users\Naaiers\sour
+  ce\repos\Rotatoee\build\.intermediates\Release\SpeedFlipTrainer.iobj" /TLBID:1 /DYNAMICB
+  ASE /NXCOMPAT /IMPLIB:"C:\Users\Naaiers\source\repos\Rotatoee\plugins\SpeedFlipTrainer.l
+  ib" /MACHINE:X64 /DLL C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Releas
+  e\SpeedFlipTrainer.res
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\Attempt.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\BotAttempt.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\format.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\os.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imguivariouscontrols
+  .obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_additions.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_demo.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_draw.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_impl_dx11.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_impl_win32.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_rangeslider.ob
+  j
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_searchablecomb
+  o.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_timeline.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\imgui_widgets.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\ImGuiFileDialog.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\pch.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\RenderMeter.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\SpeedFlipTrainer.obj
+  C:\Users\Naaiers\source\repos\Rotatoee\build\.intermediates\Release\SpeedFlipTrainerGUI.
+  obj
+     Création de la bibliothèque C:\Users\Naaiers\source\repos\Rotatoee\plugins\SpeedFlipT
+  rainer.lib et de l'objet C:\Users\Naaiers\source\repos\Rotatoee\plugins\SpeedFlipTrainer
+  .exp
+  Génération de code en cours
+  0 of 3602 functions ( 0.0%) were compiled, the rest were copied from previous compilatio
+  n.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Fin de la génération du code
+  SpeedFlipTrainer.vcxproj -> C:\Users\Naaiers\source\repos\Rotatoee\plugins\SpeedFlipTrai
+  ner.dll
+PostBuildEvent:
+   "C:\Users\Naaiers\AppData\Roaming\bakkesmod\bakkesmod\\bakkesmodsdk\bakkesmod-patch.exe
+  " "C:\Users\Naaiers\source\repos\Rotatoee\plugins\SpeedFlipTrainer.dll"
+  :VCEnd
+  02:14:08 [INFO] Copying plugin to C:\Users\Naaiers\AppData\Roaming\bakkesmod\ba
+  kkesmod/plugins\SpeedFlipTrainer.dll
+  02:14:08 [ERROR] Io error: Le processus ne peut pas acc├®der au fichier car ce
+  fichier est utilis├® par un autre processus. (os error 32)
+  02:14:08 [ERROR] Cause:
+        Le processus ne peut pas acc├®der au fichier car ce fichier est utilis├® par un au
+  tre processus. (os error 32)
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsof
+t.CppCommon.targets(166,5): error MSB3073: La commande " "C:\Users\Naaiers\AppData\Roaming
+\bakkesmod\bakkesmod\\bakkesmodsdk\bakkesmod-patch.exe" "C:\Users\Naaiers\source\repos\Rot
+atoee\plugins\SpeedFlipTrainer.dll" [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT W
+ORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsof
+t.CppCommon.targets(166,5): error MSB3073: :VCEnd" s'est arrêtée avec le code 1. [C:\Users
+\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTr
+ainer\SpeedFlipTrainer.vcxproj]
+Génération du projet "C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spe
+edFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj" terminée (cibles par défaut)
+ -- ÉCHEC.
+
+Génération du projet "C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" terminée (cible
+s par défaut) -- ÉCHEC.
+
+
+ÉCHEC de la build.
+
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (cible par défaut) (1) ->
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj" (cible par défaut) (2) ->
+(PrepareForBuild cible) ->
+  C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Micros
+oft.CppBuild.targets(538,5): warning MSB8028: Le répertoire intermédiaire (C:\Users\Naaier
+s\source\repos\Rotatoee\build\.intermediates\Release\) contient des fichiers partagés prov
+enant d'un autre projet (SpeedFlipTrainer.vcxproj). Cela peut entraîner un comportement de
+ nettoyage et de regénération incorrect. [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.
+vcxproj]
+
+
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (cible par défaut) (1) ->
+"C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Sp
+eedFlipTrainer\SpeedFlipTrainer.vcxproj" (cible par défaut) (3) ->
+  C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Micros
+oft.CppBuild.targets(538,5): warning MSB8028: Le répertoire intermédiaire (C:\Users\Naaier
+s\source\repos\Rotatoee\build\.intermediates\Release\) contient des fichiers partagés prov
+enant d'un autre projet (Rotatoee.vcxproj). Cela peut entraîner un comportement de nettoya
+ge et de regénération incorrect. [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORK
+ING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+
+
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (cible par défaut) (1) ->
+"C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Sp
+eedFlipTrainer\SpeedFlipTrainer.vcxproj" (cible par défaut) (3) ->
+(ClCompile cible) ->
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\Attempt.h(31,20): warning C4305: 'initialisation' : troncation de 'double'
+ à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrai
+ner-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\Attempt.h(31,20): warning C4305: 'initialisation' : troncation de 'double'
+ à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrai
+ner-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainerGUI.cpp(169,71): warning C4305: 'argument' : troncation de
+ 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spee
+dFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainerGUI.cpp(169,64): warning C4305: 'argument' : troncation de
+ 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spee
+dFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(49,13): warning C4244: 'return' : conversion de 'doub
+le' en 'float', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PRO
+JECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(188,40): warning C4244: '=' : conversion de 'float' e
+n 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WO
+RKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(256,121): warning C4305: 'argument' : troncation de '
+double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(256,108): warning C4305: 'argument' : troncation de '
+double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(344,20): warning C4244: 'initialisation' : conversion
+ de 'int' en 'float', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GO
+OD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(345,21): warning C4244: 'initialisation' : conversion
+ de 'int' en 'float', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GO
+OD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(362,12): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(364,18): warning C4244: 'initialisation' : conversion
+ de 'float' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GO
+OD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(401,50): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(409,12): warning C4244: 'initialisation' : conversion
+ de 'double' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\G
+OOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(410,28): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(410,23): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(410,18): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(417,24): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(417,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(428,24): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(428,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(460,53): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(461,51): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(462,52): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(496,51): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(503,28): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(503,23): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(503,18): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(536,50): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(538,51): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(540,50): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(553,28): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(553,23): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(553,18): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(604,53): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(605,52): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(606,53): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(607,53): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(608,52): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(609,53): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(618,51): warning C4305: 'initialisation' : troncation
+ de 'double' à 'float' [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\S
+peedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(661,28): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(661,23): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(661,18): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(672,13): warning C4267: 'initialisation' : conversion
+ de 'size_t' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\G
+OOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(674,29): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(674,24): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(674,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(680,12): warning C4244: 'initialisation' : conversion
+ de 'double' en 'int', perte possible de données [C:\Users\Naaiers\source\repos\Rotatoee\G
+OOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(684,23): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(686,24): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(686,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(688,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(697,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\S
+peedFlipTrainer\SpeedFlipTrainer.cpp(705,19): warning C4309: 'argument' : troncation de va
+leur de constante [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedF
+lipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\includ
+e\xutility(462,64): warning C4244: 'initialisation' : conversion de '_Ty' en '_Ty', perte
+possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spee
+dFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         with [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:             _Ty=double [C:\Users\Naaiers\source\repos\Rot
+atoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vc
+xproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         and [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:             _Ty=float [C:\Users\Naaiers\source\repos\Rota
+toee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcx
+proj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(462,64): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\includ
+e\xutility(476,61): warning C4244: 'initialisation' : conversion de '_Ty' en '_Ty', perte
+possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spee
+dFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         with [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:             _Ty=double [C:\Users\Naaiers\source\repos\Rot
+atoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vc
+xproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         and [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:             _Ty=float [C:\Users\Naaiers\source\repos\Rota
+toee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcx
+proj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(476,61): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\includ
+e\xutility(463,69): warning C4244: 'initialisation' : conversion de '_Ty' en '_Ty', perte
+possible de données [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\Spee
+dFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         with [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+ PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:             _Ty=double [C:\Users\Naaiers\source\repos\Rot
+atoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vc
+xproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         and [C:\Users\Naaiers\source\repos\Rotatoee\GOOD
+PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         [ [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:             _Ty=float [C:\Users\Naaiers\source\repos\Rota
+toee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcx
+proj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\
+xutility(463,69): warning C4244:         ] [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PR
+OJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+
+
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (cible par défaut) (1) ->
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj" (cible par défaut) (2) ->
+(ClCompile cible) ->
+  C:\Users\Naaiers\source\repos\Rotatoee\GuiBase.cpp(64,1): error C1010: fin de fichier in
+attendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter
+'#include "pch.h"' à votre source ? [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxpr
+oj]
+  C:\Users\Naaiers\source\repos\Rotatoee\RenderRotatoee.cpp(3,10): error C1083: Impossible
+ d'ouvrir le fichier include : 'bakkesmod/wrappers/Structs/LinearColor.h' : No such file o
+r directory [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\VectorMath.h(3,10): error C1083: Impossible d'ouv
+rir le fichier include : 'bakkesmod/wrappers/Structs/Vector.h' : No such file or directory
+ [C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj]
+  C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.cpp(5,10): error C1083: Impossible d'ouv
+rir le fichier include : 'bakkesmod/wrappers/CarWrapper.h' : No such file or directory [C:
+\Users\Naaiers\source\repos\Rotatoee\Rotatoee.vcxproj]
+
+
+"C:\Users\Naaiers\source\repos\Rotatoee\Rotatoee.sln" (cible par défaut) (1) ->
+"C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\Sp
+eedFlipTrainer\SpeedFlipTrainer.vcxproj" (cible par défaut) (3) ->
+(PostBuildEvent cible) ->
+  C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Micros
+oft.CppCommon.targets(166,5): error MSB3073: La commande " "C:\Users\Naaiers\AppData\Roami
+ng\bakkesmod\bakkesmod\\bakkesmodsdk\bakkesmod-patch.exe" "C:\Users\Naaiers\source\repos\R
+otatoee\plugins\SpeedFlipTrainer.dll" [C:\Users\Naaiers\source\repos\Rotatoee\GOOD PROJECT
+ WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTrainer\SpeedFlipTrainer.vcxproj]
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsof
+t.CppCommon.targets(166,5): error MSB3073: :VCEnd" s'est arrêtée avec le code 1. [C:\Users
+\Naaiers\source\repos\Rotatoee\GOOD PROJECT WORKING NICE\SpeedFlipTrainer-main\SpeedFlipTr
+ainer\SpeedFlipTrainer.vcxproj]
+
+    60 Avertissement(s)
+    5 Erreur(s)
+
+Temps écoulé 00:00:09.21TAPE
