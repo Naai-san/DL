@@ -1,0 +1,309 @@
+<#
+Script PowerShell 100% conforme detailled_instructions.md
+- Respect strict des chemins, accents et caractères spéciaux conservés
+- Diff SHA256 sur chemin relatif (hash trim + lower avant comparaison)
+- Gestion native du NT-Path : on tente d'abord le chemin normal, puis NT-Path si nécessaire (jamais de NT-Path inutile)
+- Exclusions prioritaires, inclusions, découpage, synthèse, aide complète
+- Log détaillé uniquement si -log est passé en argument (output dans Output\diagnostic_log.txt)
+#>
+
+Param (
+    [Parameter(Mandatory=$false)]
+    [string]$RootPath,
+    [string]$ReferencePath = "",
+    [string[]]$ExcludePaths = @(),
+    [string[]]$IncludeExtensions = @(),
+    [int]$MaxLinesPerFile = 1000,
+    [string]$Mode = "",
+    [string]$OutputDir = "",
+    [switch]$help,
+    [switch]$log
+)
+
+$ScriptName = Split-Path -Leaf $MyInvocation.MyCommand.Path
+
+if ([string]::IsNullOrWhiteSpace($OutputDir)) {
+    $OutputFolder = Join-Path -Path (Get-Location) -ChildPath "Output"
+} else {
+    $OutputFolder = $OutputDir
+}
+if (-Not (Test-Path -Path $OutputFolder)) {
+    New-Item -ItemType Directory -Path $OutputFolder | Out-Null
+}
+
+# Log dans le dossier Output
+$LogFile = Join-Path $OutputFolder "diagnostic_log.txt"
+if ($log) { Remove-Item -ErrorAction SilentlyContinue $LogFile }
+function Log {
+    param($msg)
+    if ($log) { Add-Content -Path $LogFile -Value $msg }
+}
+
+function Clean-Path {
+    param([string]$Path)
+    $Path = $Path -replace '/', '\'
+    $Path = $Path.Trim()
+    $Path = $Path -replace '(?<!^)\\{2,}', '\'
+    return $Path
+}
+
+# Ouverture de fichier : on tente d’abord le chemin standard, puis NT-Path si nécessaire.
+function Open-File-For-Hash {
+    param([string]$Path)
+    try {
+        return [System.IO.File]::Open($Path, 'Open', 'Read', 'Read')
+    } catch {
+        $ntPath = '\\?\'+$Path
+        try {
+            return [System.IO.File]::Open($ntPath, 'Open', 'Read', 'Read')
+        } catch {
+            return $null
+        }
+    }
+}
+function Get-FileHashSHA256-Long {
+    param([string]$Path)
+    $logmsg = @()
+    $logmsg += "---- HASH DEBUG ----"
+    $logmsg += "Orig Path: $Path"
+    Log ($logmsg -join "`n")
+    try {
+        $fs = Open-File-For-Hash $Path
+        if (-not $fs) { throw "Ouverture impossible (standard et NT-Path)" }
+        $sha256 = [System.Security.Cryptography.SHA256]::Create()
+        $hashBytes = $sha256.ComputeHash($fs)
+        $fs.Close()
+        return ([BitConverter]::ToString($hashBytes) -replace '-', '').ToLower().Trim()
+    } catch {
+        Log "Hash ERROR: $Path - $($_.Exception.Message)"
+        return $null
+    }
+}
+
+function File-Exists-NT {
+    param([string]$Path)
+    $pathClean = Clean-Path $Path
+    try {
+        if ([System.IO.File]::Exists($pathClean)) { return $true }
+        $ntPath = '\\?\'+$pathClean
+        if ($ntPath -ne $pathClean) {
+            return [System.IO.File]::Exists($ntPath)
+        } else {
+            return $false
+        }
+    } catch {
+        Log "File-Exists-NT ERROR: $pathClean - $($_.Exception.Message)"
+        return $false
+    }
+}
+function Get-FileContentLines-Long {
+    param([string]$Path)
+    $lines = @()
+    try {
+        $reader = $null
+        try {
+            $reader = [System.IO.StreamReader]::new($Path, [System.Text.Encoding]::UTF8)
+        } catch {
+            $ntPath = '\\?\'+$Path
+            $reader = [System.IO.StreamReader]::new($ntPath, [System.Text.Encoding]::UTF8)
+        }
+        while (-not $reader.EndOfStream) {
+            $lines += $reader.ReadLine()
+        }
+        $reader.Close()
+        return ,$lines
+    } catch {
+        return "[ERREUR LECTURE: $($_.Exception.Message)]"
+    }
+}
+function Test-Exclusion {
+    param($File)
+    foreach ($pattern in $ExcludePaths) {
+        if ($pattern -eq "*") { return $true }
+        if ($pattern -eq "")  { if ($File.Extension -eq "") { return $true } }
+        elseif ($pattern.StartsWith(".")) { if ($File.Extension -eq $pattern) { return $true } }
+        elseif ($pattern -like "*`**") { if ($File.FullName -like $pattern) { return $true } }
+        elseif ($File.FullName.StartsWith($pattern, [System.StringComparison]::InvariantCultureIgnoreCase)) { return $true }
+    }
+    return $false
+}
+function Test-Inclusion {
+    param($File)
+    if ($IncludeExtensions.Count -eq 0) { return $true }
+    foreach ($inc in $IncludeExtensions) {
+        if ($inc -eq "*")  { return $true }
+        if ($inc -eq "")   { if ($File.Extension -eq "") { return $true } }
+        elseif ($File.Extension -eq $inc) { return $true }
+    }
+    return $false
+}
+
+if ($help) {
+    Write-Host @"
+UTILISATION :
+--------------
+    .\$ScriptName -RootPath <Chemin> [options]
+
+OPTIONS :
+---------
+    -RootPath <string>           Dossier à analyser (obligatoire sauf -help)
+    -ReferencePath <string>      Dossier de référence pour la comparaison (optionnel)
+    -ExcludePaths <array>        Chemins/motifs à exclure. Utiliser * pour tout exclure, "" (vide) pour exclure les fichiers sans extension, ou par extension (ex : .log), ou chemin complet/partiel.
+    -IncludeExtensions <array>   Extensions à inclure. * pour tout, "" (vide) pour uniquement les fichiers sans extension, ou par extension (ex : .txt, .ps1).
+    -OutputDir <string>          Dossier où stocker les exports (défaut : Output dans le dossier d'exécution du script)
+    -MaxLinesPerFile <int>       Lignes max par fichier texte exporté (jamais de coupure d'un fichier entre deux outputs)
+    -Mode <string>               "open" pour ouvrir les fichiers trouvés (sinon export concaténé par défaut)
+    -log                         Active la journalisation détaillée dans Output\diagnostic_log.txt
+    -help                        Affiche cette aide
+
+EXEMPLES :
+----------
+    # Export complet :
+    .\$ScriptName -RootPath "C:\MonApp\Config"
+
+    # Export uniquement des différences avec un dossier de référence :
+    .\$ScriptName -RootPath "C:\ConfigModif" -ReferencePath "C:\ConfigDefaut"
+
+    # Export avec log détaillé :
+    .\$ScriptName -RootPath "C:\ConfigModif" -ReferencePath "C:\ConfigDefaut" -log
+
+    # Ouvrir uniquement les différences :
+    .\$ScriptName -RootPath "C:\ConfigModif" -ReferencePath "C:\ConfigDefaut" -Mode open
+
+    # Export avec filtrage pour .json et sans extension :
+    .\$ScriptName -RootPath "C:\Config" -IncludeExtensions .json,"" -ExcludePaths .git
+
+    # Export uniquement les fichiers sans extension :
+    .\$ScriptName -RootPath "C:\Config" -IncludeExtensions ""
+
+    # Exclure tous les fichiers sauf .ps1 :
+    .\$ScriptName -RootPath "C:\Config" -ExcludePaths "*" -IncludeExtensions .ps1
+
+REMARQUES :
+-----------
+- Les exclusions sont prioritaires sur les inclusions.
+- L'utilisation de * dans -ExcludePaths ou -IncludeExtensions cible tous les fichiers.
+- L'utilisation de "" dans -IncludeExtensions ou -ExcludePaths cible explicitement les fichiers sans extension.
+- Comparaison et export à partir du répertoire donné en -RootPath/-ReferencePath (les noms de dossiers passés en argument ne sont pas pris en compte pour la comparaison).
+- Structure : Pas d'arborescence créée dans Output. Chaque Output_X.txt contient une ou plusieurs entrées : "Nom du fichier : chemin complet", puis le contenu du fichier.
+- Découpage : Un même fichier ne sera jamais coupé entre deux Output_X.txt, même si son contenu est volumineux.
+- Si ReferencePath est fourni, seuls les fichiers absents ou différents (SHA256) sont exportés, selon la même logique de format.
+- Gestion native de tous les fichiers et chemins, même très longs.
+- Une synthèse de l'arborescence des fichiers exportés est ajoutée à la fin du dernier Output_X.txt.
+- Journalisation détaillée uniquement si -log est activé.
+"@
+    return
+}
+
+if (-not $RootPath) {
+    Write-Error "Le paramètre -RootPath est obligatoire (voir -help)."
+    return
+}
+
+$AllFiles = Get-ChildItem -Path $RootPath -Recurse -File | Where-Object {
+    $file = $_
+    if (Test-Exclusion $file) { return $false }
+    if (-not (Test-Inclusion $file)) { return $false }
+    return $true
+}
+
+$FilesToExport = @()
+if ($ReferencePath -and (Test-Path $ReferencePath)) {
+    $RootAbs = (Resolve-Path $RootPath).Path
+    $RefAbs = (Resolve-Path $ReferencePath).Path
+    foreach ($file in $AllFiles) {
+        $RelPath = $file.FullName.Substring($RootAbs.Length).TrimStart('\')
+        $RelPath = $RelPath -replace '/', '\'
+        $RefFile = [System.IO.Path]::Combine($RefAbs, $RelPath)
+
+        $ExportThis = $true
+        $Hash1 = $null
+        $Hash2 = $null
+        $exists = File-Exists-NT $RefFile
+        $logmsg = @()
+        $logmsg += "=== FILE ==="
+        $logmsg += "ROOT   : $($file.FullName)"
+        $logmsg += "REF    : $RefFile"
+        $logmsg += "RelPath: $RelPath"
+        $logmsg += "RefExists? : $exists"
+
+        if ($exists) {
+            $Hash1 = Get-FileHashSHA256-Long $file.FullName
+            $Hash2 = Get-FileHashSHA256-Long $RefFile
+            $logmsg += "Hash1  : $Hash1 (`length $($Hash1.Length)`)"
+            $logmsg += "Hash2  : $Hash2 (`length $($Hash2.Length)`)"
+            $logmsg += "Hash1 = Hash2 ? $($Hash1 -eq $Hash2)"
+            if (($Hash1 -ne $null) -and ($Hash2 -ne $null) -and ($Hash1 -eq $Hash2)) {
+                $ExportThis = $false
+                $logmsg += "CAUSE : Identique (HASH)"
+            }
+            elseif (($Hash1 -eq $null) -or ($Hash2 -eq $null)) {
+                $logmsg += "CAUSE : Hash null (problème d'accès ou de lecture)"
+            } else {
+                $logmsg += "CAUSE : Différence de hash"
+            }
+        } else {
+            $logmsg += "CAUSE : Fichier de référence absent"
+        }
+        $logmsg += "EXPORT : $ExportThis"
+        Log ($logmsg -join "`n")
+        if ($ExportThis) {
+            $FilesToExport += $file
+        }
+    }
+} else {
+    $FilesToExport = $AllFiles
+}
+
+if ($Mode -eq "open") {
+    foreach ($file in $FilesToExport) {
+        $TempFilePath = Join-Path $env:TEMP ([System.Guid]::NewGuid().ToString("N") + ".txt")
+        [System.IO.File]::WriteAllText($TempFilePath, [System.IO.File]::ReadAllText($file.FullName))
+        Start-Process powershell -ArgumentList "-NoExit", "-Command", "`"Write-Host 'Chemin : $($file.FullName)'; Get-Content '$TempFilePath'`""
+    }
+    Write-Host "Tous les fichiers pertinents ont été ouverts dans des terminaux PowerShell."
+    return
+}
+
+$SyntheseArbo = $FilesToExport | ForEach-Object { $_.FullName }
+
+function Write-Outputs {
+    param(
+        [array]$Files,
+        [int]$MaxLines,
+        [string]$OutputDir,
+        [array]$SyntheseArbo
+    )
+    $CurrentOutput = @()
+    $FileIndex = 1
+    $TotalFiles = $Files.Count
+    $CurrentFileNum = 0
+    foreach ($file in $Files) {
+        $PathLine = "Nom du fichier : $($file.FullName)"
+        $FileContentLines = Get-FileContentLines-Long $file.FullName
+        $NeededLines = 1 + $FileContentLines.Count
+        if (($CurrentOutput.Count + $NeededLines) -gt $MaxLines -and $CurrentOutput.Count -gt 0) {
+            $OutputFilePath = Join-Path $OutputDir ("Output_{0}.txt" -f $FileIndex)
+            $CurrentOutput -join "`n" | Set-Content -Path $OutputFilePath -Encoding UTF8
+            $CurrentOutput = @()
+            $FileIndex++
+        }
+        $CurrentOutput += $PathLine
+        $CurrentOutput += $FileContentLines
+        $CurrentFileNum++
+        if ($CurrentFileNum -eq $TotalFiles) {
+            $CurrentOutput += ""
+            $CurrentOutput += "---- Synthèse de l'arborescence traitée ----"
+            $CurrentOutput += $SyntheseArbo
+        }
+    }
+    if ($CurrentOutput.Count -gt 0) {
+        $OutputFilePath = Join-Path $OutputDir ("Output_{0}.txt" -f $FileIndex)
+        $CurrentOutput -join "`n" | Set-Content -Path $OutputFilePath -Encoding UTF8
+    }
+}
+
+Write-Outputs -Files $FilesToExport -MaxLines $MaxLinesPerFile -OutputDir $OutputFolder -SyntheseArbo $SyntheseArbo
+
+if ($log) { Write-Host "Log complet dans $LogFile" }
+Write-Host "Export effectué dans $OutputFolder."
