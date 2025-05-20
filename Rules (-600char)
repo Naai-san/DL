@@ -8,3 +8,11 @@ Sinon : corriger immédiatement la réponse.
 2. Preuve de compréhension: Lis et respecte [test.md](https://github.com/Naai-san/DL/blob/915e013ff5f0f343803f0e91cae90795b2dfe1c9/test.md).
 2. Preuve de compréhension: Lis et respecte [test.md](https://github.com/Naai-san/DL/blob/2b5da4f73aac80b25325c8d22a5280c9500da5d4/test.md).
 ---> second 2. pour RL
+
+
+
+Convention d’accès fichier :
+::"nom" → fichier à la racine de Naai-san/DL nommé exactement nom
+::"chemin/vers/fichier" → fichier dans le sous-dossier chemin/vers/ à la racine de Naai-san/DL
+Les guillemets sont obligatoires, l’extension est prise telle quelle (ou absente).
+Convention valable pour toute la session. Une mention est obligatoire en cas d'échec.
