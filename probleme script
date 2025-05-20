@@ -1,0 +1,767 @@
+je veux que le script créé par Défaut un dossier Output à l'endroit où le script est exécuté plutôt que dans rootpath.
+Il y a un problème : voici l'arborescence de sortie :
+PS C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome> Get-ChildItem -Recurse -Path .\Output\ | %{Write-Host $_.FullName}
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\BrowserMetrics
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\component_crx_cache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Crashpad
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\extensions_crx_cache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GraphiteDawnCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OnDeviceHeadSuggestModel
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OptimizationHints
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\PrivacySandboxAttestationsPreloaded
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\segmentation_platform
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\ShaderCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\First Run
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\first_party_sets.db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\first_party_sets.db-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\fr-FR-3-0.bdic
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Last Browser
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Last Version
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Local State
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Variations
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\BrowserMetrics\BrowserMetrics-682C6E39-1580.pma
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\component_crx_cache\metadata.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Crashpad\metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Crashpad\settings.dat
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\AutofillStrikeDatabase
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BudgetDatabase
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\chrome_cart_db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\ClientCertificates
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\commerce_subscription_db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnGraphiteCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnWebGPUCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\discounts_db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Download Service
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Rules
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Scripts
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extensions
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GPUCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Extension Settings
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\optimization_guide_hint_cache_store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\parcel_tracking_db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PersistentOriginTrials
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Safe Browsing Network
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sessions
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Site Characteristics Database
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Storage
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\VideoDecodeStats
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebrtcVideoStats
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebStorage
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Account Web Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Account Web Data-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Affiliation Database
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Affiliation Database-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BrowsingTopicsSiteData
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BrowsingTopicsSiteData-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BrowsingTopicsState
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DIPS
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DIPS-shm
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DIPS-wal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Cookies
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Cookies-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Favicons
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Favicons-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Google Profile.ico
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\heavy_ad_intervention_opt_out.db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\heavy_ad_intervention_opt_out.db-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\History
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\History-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\InterestGroups
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Login Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Login Data For Account
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Login Data For Account-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Login Data-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\MediaDeviceSalts
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\MediaDeviceSalts-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network Action Predictor
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network Action Predictor-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Preferences
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PreferredApps
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PrivateAggregation
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PrivateAggregation-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Secure Preferences
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\ServerCertificate
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\ServerCertificate-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\SharedStorage
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shortcuts
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shortcuts-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Top Sites
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Top Sites-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\trusted_vault.pb
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Web Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Web Data-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\AutofillStrikeDatabase\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\AutofillStrikeDatabase\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\AutofillStrikeDatabase\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BudgetDatabase\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BudgetDatabase\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\BudgetDatabase\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache\Cache_Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache\Cache_Data\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache\Cache_Data\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache\Cache_Data\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache\Cache_Data\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Cache\Cache_Data\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\chrome_cart_db\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\chrome_cart_db\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\chrome_cart_db\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\ClientCertificates\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\ClientCertificates\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\ClientCertificates\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\js
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\wasm
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\js\index-dir
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\js\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\js\index-dir\the-real-index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\wasm\index-dir
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\wasm\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Code Cache\wasm\index-dir\the-real-index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\commerce_subscription_db\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\commerce_subscription_db\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\commerce_subscription_db\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnGraphiteCache\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnGraphiteCache\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnGraphiteCache\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnGraphiteCache\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnGraphiteCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnWebGPUCache\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnWebGPUCache\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnWebGPUCache\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnWebGPUCache\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\DawnWebGPUCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\discounts_db\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\discounts_db\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\discounts_db\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Download Service\EntryDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Download Service\EntryDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Download Service\EntryDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Download Service\EntryDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Rules\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Rules\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Rules\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Rules\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Rules\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Scripts\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Scripts\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Scripts\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Scripts\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension Scripts\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extension State\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extensions\ghbmnnjooekpmoecnnnilnnbdlolhkhi
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Extensions\nmmhkkegccagdldgiimedpiccmgmieda
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\AvailabilityDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\EventDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\AvailabilityDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\AvailabilityDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\AvailabilityDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\EventDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\EventDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Feature Engagement Tracker\EventDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GCM Store\Encryption\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GPUCache\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GPUCache\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GPUCache\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GPUCache\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\GPUCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Local Storage\leveldb\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Cookies
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Cookies-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Network Persistent State
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\NetworkDataMigrated
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Reporting and NEL
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Reporting and NEL-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\SCT Auditing Pending Reports
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\TransportSecurity
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Trust Tokens
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Network\Trust Tokens-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\optimization_guide_hint_cache_store\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\optimization_guide_hint_cache_store\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\optimization_guide_hint_cache_store\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\parcel_tracking_db\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\parcel_tracking_db\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\parcel_tracking_db\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PersistentOriginTrials\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PersistentOriginTrials\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\PersistentOriginTrials\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Platform Notifications\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Safe Browsing Network\NetworkDataMigrated
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Safe Browsing Network\Safe Browsing Cookies
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Safe Browsing Network\Safe Browsing Cookies-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SegmentInfoDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalStorageConfigDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SegmentInfoDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SegmentInfoDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SegmentInfoDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalStorageConfigDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalStorageConfigDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Segmentation Platform\SignalStorageConfigDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\ScriptCache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\Database\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\ScriptCache\index-dir
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\ScriptCache\f1cdccba37924bda_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\ScriptCache\f1cdccba37924bda_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\ScriptCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Service Worker\ScriptCache\index-dir\the-real-index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Session Storage\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sessions\Session_13392215868370223
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sessions\Tabs_13392215869269679
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary\cache
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary\db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary\db-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary\cache\index-dir
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary\cache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Shared Dictionary\cache\index-dir\the-real-index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\shared_proto_db\metadata\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Site Characteristics Database\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Site Characteristics Database\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Site Characteristics Database\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Site Characteristics Database\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Site Characteristics Database\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Storage\ext
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Storage\ext\nmmhkkegccagdldgiimedpiccmgmieda
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Storage\ext\nmmhkkegccagdldgiimedpiccmgmieda\def
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB\000003.log
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB\CURRENT
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\Sync Data\LevelDB\MANIFEST-000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\VideoDecodeStats\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\VideoDecodeStats\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\VideoDecodeStats\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebrtcVideoStats\LOCK
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebrtcVideoStats\LOG
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebrtcVideoStats\LOG.old
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebStorage\QuotaManager
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Default\WebStorage\QuotaManager-journal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\extensions_crx_cache\metadata.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GraphiteDawnCache\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GraphiteDawnCache\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GraphiteDawnCache\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GraphiteDawnCache\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GraphiteDawnCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\f_000001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\f_000002
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\f_000003
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\f_000004
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\f_000005
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\GrShaderCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OnDeviceHeadSuggestModel\20250427.755145031.14
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OnDeviceHeadSuggestModel\20250427.755145031.14\_metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OnDeviceHeadSuggestModel\20250427.755145031.14\cr_fr_500000_index.bin
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OnDeviceHeadSuggestModel\20250427.755145031.14\manifest.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OptimizationHints\509
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OptimizationHints\509\_metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OptimizationHints\509\manifest.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OptimizationHints\509\optimization-hints.pb
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\OptimizationHints\509\_metadata\verified_contents.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\13
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\15
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\20
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\25
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\26
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\45
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\9
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\13\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\15\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\2\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\20\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\25\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\26\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\45\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\optimization_guide_model_store\9\C0DAB6922330736D
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\PrivacySandboxAttestationsPreloaded\2025.4.30.0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\PrivacySandboxAttestationsPreloaded\2025.4.30.0\_metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\PrivacySandboxAttestationsPreloaded\2025.4.30.0\manifest.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\ChromeExtMalware.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\ChromeExtMalware.store.32_13392208406888176
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlBilling.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlBilling.store.4_13392208406898198
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlCsdAllowlist.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlCsdAllowlist.store.32_13392208406902336
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlCsdAllowlist.store.4_13392208406902223
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlCsdDownloadAllowlist.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlCsdDownloadAllowlist.store.32_13392208406900635
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlHighConfidenceAllowlist.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlHighConfidenceAllowlist.store.32_13392208406854957
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlMalBin.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlMalBin.store.4_13392208406884434
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlMalware.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlMalware.store.4_13392208406865188
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlSoceng.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlSoceng.store.4_13392208406602001
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlSubresourceFilter.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlSubresourceFilter.store.4_13392208406907390
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlSuspiciousSite.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlSuspiciousSite.store.4_13392208406880778
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlUws.store
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Safe Browsing\UrlUws.store.4_13392208406875760
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\segmentation_platform\ukm_db
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\segmentation_platform\ukm_db-wal
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\ShaderCache\data_0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\ShaderCache\data_1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\ShaderCache\data_2
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\ShaderCache\data_3
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\ShaderCache\index
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Indexed Rules
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Unindexed Rules
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Indexed Rules\36
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Indexed Rules\36\9.56.0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Indexed Rules\36\9.56.0\Ruleset Data
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Unindexed Rules\9.56.0
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Unindexed Rules\9.56.0\_metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Unindexed Rules\9.56.0\Filtering Rules
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Unindexed Rules\9.56.0\LICENSE.txt
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\Subresource Filter\Unindexed Rules\9.56.0\manifest.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments\2025.5.15.1
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments\2025.5.15.1\_metadata
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments\2025.5.15.1\keys.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments\2025.5.15.1\LICENSE
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments\2025.5.15.1\manifest.json
+C:\Users\admin-m.raynaud\Documents\get content and name from files in folder\Root - Modifié\Chrome\Output\Documents\get content and name from files in folder\Root - Modifié\Chrome\User Data\TrustTokenKeyCommitments\2025.5.15.1\_metadata\verified_contents.json
+Alors que j'ai exécuté :
+PS C:\Users\admin-m.raynaud\Documents\get content and name from files in folder> & '.\get content and name from files in folder.ps1' -RootPath '.\Root - Modifié\Chrome\' -ReferencePath '.\Reference - Base non modifiée\Chrome\'
+Et qu'à la base le script est :
+Param (
+    # Mode: "open" pour ouvrir les fichiers dans PowerShell, "save" pour stocker les résultats
+    [string]$Mode = "save",
+    # Nombre maximal de lignes par fichier de sortie
+    [int]$MaxLinesPerFile = 1000
+)
+
+# Chemin du dossier à analyser
+$RootPath = "C:\Users\Naaiers\source\repos\Rotatoe"
+
+# Liste des répertoires à exclure
+$ExcludePaths = @(
+    "C:\Users\Naaiers\source\repos\Rotatoe\.git",
+    "C:\Users\Naaiers\source\repos\Rotatoe\.vs",
+    "C:\Users\Naaiers\source\repos\Rotatoe\IMGUI",
+	"C:\Users\Naaiers\source\repos\Rotatoe\Documentation",
+	"C:\Users\Naaiers\source\repos\Rotatoe\Output",
+	"C:\Users\Naaiers\source\repos\Rotatoe\.txt"
+)
+
+# Liste des extensions de fichiers à inclure
+$IncludeExtensions = @(".props", ".cpp", ".h", ".rc", ".sln", ".vcxproj", ".filters", ".user")
+
+# Dossier temporaire pour stocker les contenus des fichiers
+$TempFolder = "$env:TEMP\FileContents"
+if (-Not (Test-Path -Path $TempFolder)) {
+    New-Item -ItemType Directory -Path $TempFolder | Out-Null
+}
+
+# Analyse des fichiers
+$Files = Get-ChildItem -Path $RootPath -Recurse -File | Where-Object { 
+    $ExcludePaths -notcontains $_.DirectoryName -and 
+    $IncludeExtensions -contains $_.Extension
+}
+
+if ($Mode -eq "open") {
+    # Mode "open": ouvre un nouveau terminal PowerShell pour chaque fichier
+    $Files | ForEach-Object {
+        $FilePath = $_.FullName
+        $FileName = $_.Name
+        $TempFilePath = Join-Path -Path $TempFolder -ChildPath ($_.Name + ".txt")
+        Get-Content -Path $FilePath -Raw | Set-Content -Path $TempFilePath
+        Start-Process powershell -ArgumentList "-NoExit", "-Command", "`"Write-Host 'Titre: $FileName'; Write-Host 'Contenu:'; Get-Content '$TempFilePath'`""
+    }
+} elseif ($Mode -eq "save") {
+    # Mode "save": stocke le contenu dans des fichiers texte
+    $OutputFolder = "$RootPath\Output"
+    if (-Not (Test-Path -Path $OutputFolder)) {
+        New-Item -ItemType Directory -Path $OutputFolder | Out-Null
+    }
+
+    # Rassembler tous les contenus
+    $AllLines = @()
+    $Files | ForEach-Object {
+        $FilePath = $_.FullName
+        $FileName = $_.Name
+        $FileContent = Get-Content -Path $FilePath -Raw
+        $AllLines += "Nom du fichier : $FileName"
+        $AllLines += $FileContent -split "`n"
+    }
+
+    # Vérifier si tout tient dans un seul fichier
+    if ($AllLines.Count -le $MaxLinesPerFile) {
+        $OutputFilePath = Join-Path -Path $OutputFolder -ChildPath "Output_1.txt"
+        $AllLines -join "`n" | Set-Content -Path $OutputFilePath
+    } else {
+        # Création de fichiers multiples si nécessaire
+        $CurrentOutput = @()
+        $FileIndex = 1
+
+        foreach ($Line in $AllLines) {
+            if ($CurrentOutput.Count -ge $MaxLinesPerFile) {
+                # Sauvegarder le fichier actuel
+                $OutputFilePath = Join-Path -Path $OutputFolder -ChildPath "Output_$FileIndex.txt"
+                $CurrentOutput -join "`n" | Set-Content -Path $OutputFilePath
+                $CurrentOutput = @() # Réinitialiser pour le prochain fichier
+                $FileIndex++
+            }
+            $CurrentOutput += $Line
+        }
+
+        # Sauvegarder les lignes restantes
+        if ($CurrentOutput.Count -gt 0) {
+            $OutputFilePath = Join-Path -Path $OutputFolder -ChildPath "Output_$FileIndex.txt"
+            $CurrentOutput -join "`n" | Set-Content -Path $OutputFilePath
+        }
+    }
+} else {
+    Write-Host "Mode non reconnu: $Mode. Utilisez 'open' ou 'save'."
+}
+
+Write-Host "Traitement terminé. Mode: $Mode"
+On doit avoir la sortie dans des fichiers Output_*.txt comme décrit ci dessus.
+Mais avec les modifications demandées comme dans la partie -help du script que j'ai voulu modifier qui est le suivant :
+Param (
+    [Parameter(Mandatory=$false)]
+    [string]$RootPath,
+
+    [string]$ReferencePath = "",
+
+    [string[]]$ExcludePaths = @(),
+    [string[]]$IncludeExtensions = @(),
+
+    [int]$MaxLinesPerFile = 1000,
+
+    [string]$Mode = "",
+
+    [string]$OutputDir = "",
+
+    [switch]$help
+)
+
+# Détermination dynamique du nom du script pour cohérence dans l'aide et les exemples
+$ScriptName = Split-Path -Leaf $MyInvocation.MyCommand.Path
+
+function Get-SafePath {
+    param(
+        [string]$BaseDir,
+        [string]$RelPath
+    )
+    # Gère les chemins trop longs (Windows : 260 max, 248 pour les dossiers)
+    $maxPath = 250
+    $DestFile = Join-Path $BaseDir $RelPath
+    if ($DestFile.Length -le $maxPath) { return $DestFile }
+    $directory = Split-Path $DestFile -Parent
+    $filename = Split-Path $DestFile -Leaf
+    $ext = [System.IO.Path]::GetExtension($filename)
+    $basename = [System.IO.Path]::GetFileNameWithoutExtension($filename)
+    $maxBaseLen = $maxPath - $directory.Length - $ext.Length - 1
+    if ($maxBaseLen -lt 6) { $maxBaseLen = 6 }
+    if ($basename.Length -gt $maxBaseLen) {
+        $shortName = $basename.Substring(0, [Math]::Min($basename.Length, $maxBaseLen - 5)) + "_..." + [System.Guid]::NewGuid().ToString("N").Substring(0,4)
+    } else {
+        $shortName = $basename
+    }
+    $safeFile = Join-Path $directory ($shortName + $ext)
+    if ($safeFile.Length -gt $maxPath) {
+        # Fallback : nom hashé
+        $hashed = [System.BitConverter]::ToString([System.Security.Cryptography.SHA1]::Create().ComputeHash([System.Text.Encoding]::UTF8.GetBytes($RelPath))).Replace("-", "")
+        $safeFile = Join-Path $directory ($hashed.Substring(0,16) + $ext)
+    }
+    return $safeFile
+}
+
+if ($help) {
+    Write-Host @"
+UTILISATION :
+--------------
+    .\$ScriptName -RootPath <Chemin> [options]
+
+OPTIONS :
+---------
+    -RootPath <string>           Dossier à analyser (obligatoire sauf -help)
+    -ReferencePath <string>      Dossier de référence pour la comparaison (optionnel)
+    -ExcludePaths <array>        Chemins/motifs à exclure (ex : .git, *.log, C:\abs\path, "")
+    -IncludeExtensions <array>   Extensions à inclure (ex : .txt, .ps1, ""). La chaîne vide "" permet de cibler les fichiers sans extension.
+    -OutputDir <string>          Dossier où stocker les exports (défaut : sous RootPath\Output)
+    -MaxLinesPerFile <int>       Lignes max par fichier texte exporté (extract sans reference)
+    -Mode <string>               "open" pour ouvrir les fichiers trouvés (sinon extract par défaut)
+    -help                        Affiche cette aide
+
+GESTION DES FICHIERS SANS EXTENSION :
+-------------------------------------
+    - Pour inclure uniquement les fichiers sans extension :
+        -IncludeExtensions ""
+    - Pour inclure .txt et sans extension :
+        -IncludeExtensions .txt,""
+    - Pour exclure les fichiers sans extension :
+        -ExcludePaths ""
+
+COMPORTEMENT :
+--------------
+- Si -RootPath seul : extrait tout (export complet du dossier).
+- Si -RootPath ET -ReferencePath : exporte uniquement les fichiers différents ou absents (différence de contenu, comparaison SHA256).
+- Si -Mode open : ouvre dans des terminaux PowerShell les fichiers trouvés (diffs si ReferencePath, tout sinon).
+- Sinon (par défaut) : mode extract, fichiers exportés dans OutputDir en conservant l'arborescence.
+
+EXEMPLES :
+----------
+    # Export complet :
+    .\$ScriptName -RootPath "C:\MonApp\Config"
+
+    # Export uniquement des différences avec un dossier de référence :
+    .\$ScriptName -RootPath "C:\ConfigModif" -ReferencePath "C:\ConfigDefaut"
+
+    # Ouvrir uniquement les différences :
+    .\$ScriptName -RootPath "C:\ConfigModif" -ReferencePath "C:\ConfigDefaut" -Mode open
+
+    # Export avec filtrage pour .json et sans extension :
+    .\$ScriptName -RootPath "C:\Config" -IncludeExtensions .json,"" -ExcludePaths .git
+
+REMARQUES :
+-----------
+- Les exclusions/inclusions s’appliquent dans tous les cas.
+- Structure de dossiers préservée lors de l’extract/export.
+- L'utilisation de "" dans -IncludeExtensions ou -ExcludePaths cible explicitement les fichiers sans extension.
+"@
+    return
+}
+
+if (-not $RootPath) {
+    Write-Error "Le paramètre -RootPath est obligatoire (voir -help)."
+    return
+}
+
+function Test-Exclusion {
+    param($File)
+    foreach ($pattern in $ExcludePaths) {
+        if ($pattern -eq "") {
+            if ($File.Extension -eq "") { return $true }
+        }
+        elseif ($pattern -like "*`**") {
+            if ($File.FullName -like $pattern) { return $true }
+            if ($File.Name -like $pattern) { return $true }
+        }
+        elseif ($pattern.StartsWith(".")) {
+            if ($File.Extension -eq $pattern) { return $true }
+        }
+        else {
+            if ($File.FullName.StartsWith($pattern, [System.StringComparison]::InvariantCultureIgnoreCase)) {
+                return $true
+            }
+        }
+    }
+    return $false
+}
+
+function Get-FileHashSHA256 {
+    param($Path)
+    try {
+        if (Test-Path -Path $Path) {
+            return (Get-FileHash -Algorithm SHA256 -Path $Path).Hash
+        }
+        return ""
+    } catch {
+        return ""
+    }
+}
+
+# Construction du dossier de sortie
+if ([string]::IsNullOrWhiteSpace($OutputDir)) {
+    $OutputFolder = Join-Path -Path $RootPath -ChildPath "Output"
+} else {
+    $OutputFolder = $OutputDir
+}
+if (-Not (Test-Path -Path $OutputFolder)) {
+    New-Item -ItemType Directory -Path $OutputFolder | Out-Null
+}
+
+# Liste des fichiers sources à traiter
+$Files = Get-ChildItem -Path $RootPath -Recurse -File | Where-Object {
+    $file = $_
+    if ($ExcludePaths.Count -gt 0) { 
+        if (Test-Exclusion $file) { return $false }
+    }
+    if ($IncludeExtensions.Count -gt 0) {
+        foreach ($inc in $IncludeExtensions) {
+            if ($inc -eq "" -and $file.Extension -eq "") { return $true }
+            if ($inc -ne "" -and $file.Extension -eq $inc) { return $true }
+        }
+        return $false
+    }
+    return $true
+}
+
+if ($Mode -eq "open") {
+    if ($ReferencePath -and (Test-Path $ReferencePath)) {
+        foreach ($file in $Files) {
+            $RelPath = $file.FullName.Substring($RootPath.Length).TrimStart('\','/')
+            $ReferenceFile = Join-Path $ReferencePath $RelPath
+            $IsDifferent = $true
+            if (Test-Path -Path $ReferenceFile) {
+                $Hash1 = Get-FileHashSHA256 $file.FullName
+                $Hash2 = Get-FileHashSHA256 $ReferenceFile
+                if ($Hash1 -eq $Hash2 -and $Hash1 -ne "") {
+                    $IsDifferent = $false
+                }
+            }
+            if ($IsDifferent) {
+                $TempFilePath = Join-Path $env:TEMP ($file.Name + ".txt")
+                Get-Content -Path $file.FullName -Raw | Set-Content -Path $TempFilePath
+                Start-Process powershell -ArgumentList "-NoExit", "-Command", "`"Write-Host 'Chemin : $($file.FullName)'; Get-Content '$TempFilePath'`""
+            }
+        }
+    } else {
+        foreach ($file in $Files) {
+            $TempFilePath = Join-Path $env:TEMP ($file.Name + ".txt")
+            Get-Content -Path $file.FullName -Raw | Set-Content -Path $TempFilePath
+            Start-Process powershell -ArgumentList "-NoExit", "-Command", "`"Write-Host 'Chemin : $($file.FullName)'; Get-Content '$TempFilePath'`""
+        }
+    }
+    Write-Host "Tous les fichiers pertinents ont été ouverts dans des terminaux PowerShell."
+    return
+}
+
+if ($ReferencePath -and (Test-Path $ReferencePath)) {
+    $ExtractedCount = 0
+    foreach ($file in $Files) {
+        $RelPath = $file.FullName.Substring($RootPath.Length).TrimStart('\','/')
+        $ReferenceFile = Join-Path $ReferencePath $RelPath
+        $IsDifferent = $true
+        if (Test-Path -Path $ReferenceFile) {
+            $Hash1 = Get-FileHashSHA256 $file.FullName
+            $Hash2 = Get-FileHashSHA256 $ReferenceFile
+            if ($Hash1 -eq $Hash2 -and $Hash1 -ne "") {
+                $IsDifferent = $false
+            }
+        }
+        if ($IsDifferent) {
+            $DestFile = Get-SafePath -BaseDir $OutputFolder -RelPath $RelPath
+            $DestDir = Split-Path $DestFile -Parent
+            if (-not (Test-Path -Path $DestDir)) {
+                New-Item -ItemType Directory -Path $DestDir -Force | Out-Null
+            }
+            try {
+                Copy-Item -Path $file.FullName -Destination $DestFile -Force
+                $ExtractedCount++
+            } catch {
+                Write-Warning "Échec de la copie (chemin trop long ou autre) : $($file.FullName) -> $DestFile"
+            }
+        }
+    }
+    Write-Host "$ExtractedCount fichier(s) différents extraits dans $OutputFolder."
+    return
+}
+else {
+    $AllLines = @()
+    foreach ($file in $Files) {
+        $FilePath = $file.FullName
+        $AllLines += "Chemin complet : $FilePath"
+        $FileContent = Get-Content -Path $FilePath -Raw
+        $AllLines += $FileContent -split "`n"
+    }
+    $Structure = Get-ChildItem -Path $RootPath -Recurse -Name
+    $AllLines += ""
+    $AllLines += "Résumé de l'arborescence de $RootPath :"
+    $AllLines += $Structure
+
+    if ($AllLines.Count -le $MaxLinesPerFile) {
+        $OutputFilePath = Get-SafePath -BaseDir $OutputFolder -RelPath "Output_1.txt"
+        $AllLines -join "`n" | Set-Content -Path $OutputFilePath
+    } else {
+        $CurrentOutput = @()
+        $FileIndex = 1
+        foreach ($Line in $AllLines) {
+            if ($CurrentOutput.Count -ge $MaxLinesPerFile) {
+                $OutputFilePath = Get-SafePath -BaseDir $OutputFolder -RelPath ("Output_{0}.txt" -f $FileIndex)
+                $CurrentOutput -join "`n" | Set-Content -Path $OutputFilePath
+                $CurrentOutput = @()
+                $FileIndex++
+            }
+            $CurrentOutput += $Line
+        }
+        if ($CurrentOutput.Count -gt 0) {
+            $OutputFilePath = Get-SafePath -BaseDir $OutputFolder -RelPath ("Output_{0}.txt" -f $FileIndex)
+            $CurrentOutput -join "`n" | Set-Content -Path $OutputFilePath
+        }
+    }
+    Write-Host "Export complet effectué dans $OutputFolder."
+}
