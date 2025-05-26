@@ -1,0 +1,111 @@
+function s {
+    param(
+        [Parameter(Position=0, ValueFromRemainingArguments=$true)]
+        [string[]]$terms,
+        [string]$p,
+        [string[]]$x,
+        [switch]$a,
+        [switch]$v,
+        [switch]$2,
+        [switch]$split
+    )
+
+    # Affichage de l'aide si aucun paramètre n'est fourni
+    if (-not $terms -and -not $p -and -not $x -and -not $a -and -not $split) {
+        Write-Host ""
+        Write-Host "Fonction Search"
+        Write-Host "Usage : s [terme1] [terme2] [...] [-p chemin] [-x terme3 terme4 ...] [-a] [-v] [-2] [-split]"
+        Write-Host "Recherche récursive de fichiers/dossiers dont le chemin contient TOUS les termes"
+        Write-Host "  -p (optionnel) : Path  [Défaut : répertoire courant]"
+        Write-Host "  -x (optionnel) : Exclure les termes de la recherche  [Défaut : AppData]"
+        Write-Host "  -a (optionnel) : AppData est inclus dans la recherche"
+        Write-Host "  -v (optionnel) : Verbose, affiche le chemin de chaque élément traité et les paramètres"
+        Write-Host "  -2 (optionnel) : Mode compatibilité PowerShell 2.0"
+        Write-Host "  -split (optionnel) : Recherche classique dans tout le chemin complet"
+        Write-Host ""
+        return
+    }
+
+    # Détermination du chemin de base
+    $path = if ($p) {
+        if ($v) { Write-Host "PATH défini par paramètre : $p" }
+        if (Test-Path $p) {
+            if ($2) { [string](Resolve-Path $p) } else { (Resolve-Path $p).Path }
+        } else {
+            Write-Error "Le chemin spécifié n'existe pas : $p"
+            return
+        }
+    } else {
+        if ($v) { Write-Host "PATH non défini : utilisation du répertoire courant" }
+        if ($2) { [string](Get-Location) } else { (Get-Location).Path }
+    }
+
+    # Exclusions
+    $exclude = @()
+    if (-not $a) { $exclude += "AppData" }
+    if ($x) { $exclude += $x }
+
+    if ($v) {
+        Write-Host "=== PARAMETRES DE RECHERCHE ==="
+        Write-Host "Chemin de recherche : $path"
+        Write-Host "Termes recherchés : [$($terms -join ', ')]"
+        Write-Host "Termes d'exclusion : [$($exclude -join ', ')]"
+        Write-Host "Mode PowerShell : $(if ($2) { '2.0 (compatibilite)' } else { '5.0+ (optimise)' })"
+        Write-Host "Mode Split : $(if ($split) { 'Activé' } else { 'Désactivé' })"
+        Write-Host "=== DEBUT DE LA RECHERCHE ==="
+    }
+
+    try {
+        $results = Get-ChildItem -Recurse -Path $path -ErrorAction SilentlyContinue | Where-Object {
+            $fullPath = $_.FullName
+            if ($v) { Write-Host "Examen de : $fullPath" }
+            foreach ($excludeTerm in $exclude) {
+                if ($fullPath -like "*$excludeTerm*") {
+                    if ($v) { Write-Host "  [EXCLUSION] Terme '$excludeTerm' trouvé dans le chemin" }
+                    return $false
+                }
+            }
+
+            if ($split) {
+                # Mode classique : tous les termes dans tout le chemin
+                foreach ($term in $terms) {
+                    if ($fullPath -notlike "*$term*") {
+                        if ($v) { Write-Host "  [REJET] Terme '$term' absent du chemin" }
+                        return $false
+                    }
+                }
+            } else {
+                # Nouveau mode : tous les termes doivent être dans un même bloc du fullpath
+                $blocks = $fullPath -split '\\'
+                foreach ($term in $terms) {
+                    if (-not ($blocks | Where-Object { $_ -like "*$term*" })) {
+                        if ($v) { Write-Host "  [REJET] Terme '$term' absent d'un même bloc du chemin" }
+                        return $false
+                    }
+                }
+            }
+
+            if ($v) { Write-Host "  [MATCH] Tous les termes trouvés" }
+            return $true
+        }
+
+        $count = 0
+        if ($v) { Write-Host "=== RESULTATS ===" }
+        foreach ($result in $results) {
+            $count++
+            if ($v) {
+                Write-Host "[$count] RESULTAT : $($result.FullName)"
+            } else {
+                Write-Output $result.FullName
+            }
+        }
+        if ($v) {
+            Write-Host "=== STATISTIQUES FINALES ==="
+            Write-Host "Total d'éléments trouvés : $count"
+            Write-Host "=== FIN DE LA RECHERCHE ==="
+        }
+    } catch {
+        Write-Error "Erreur lors de la recherche : $($_.Exception.Message)"
+        if ($v) { Write-Host "Détails de l'erreur : $($_.Exception)" }
+    }
+}

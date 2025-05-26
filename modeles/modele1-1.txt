@@ -1,0 +1,125 @@
+function s {
+    param(
+        [Parameter(Position=0, ValueFromRemainingArguments=$true)]
+        [string[]]$terms,
+        [string]$p,
+        [string[]]$x,
+        [switch]$a,
+        [switch]$v,
+        [switch]$2,
+        [switch]$split
+    )
+
+    # Affichage de l'aide si aucun paramètre n'est fourni
+    if (-not $terms -and -not $p -and -not $x -and -not $a -and -not $split) {
+        Write-Host ""
+        Write-Host "Fonction Search"
+        Write-Host "Usage : s [terme1] [terme2] [...] [-p chemin] [-x terme3 terme4 ...] [-a] [-v] [-2] [-split]"
+        Write-Host "Recherche récursive de fichiers/dossiers dont le chemin contient TOUS les termes"
+        Write-Host "  Par défaut, tous les termes doivent être présents dans le même bloc (dossier ou nom de fichier, extension comprise)"
+        Write-Host "  -split (optionnel) : Recherche classique dans tout le chemin complet (ancien comportement)"
+        Write-Host "  -p (optionnel) : Path  [Défaut : répertoire courant]"
+        Write-Host "  -x (optionnel) : Exclure les termes de la recherche  [Défaut : AppData]"
+        Write-Host "  -a (optionnel) : AppData est inclus dans la recherche"
+        Write-Host "  -v (optionnel) : Verbose, affiche le chemin de chaque élément traité et les paramètres"
+        Write-Host "  -2 (optionnel) : Mode compatibilité PowerShell 2.0"
+        Write-Host ""
+        return
+    }
+
+    # Détermination du chemin de base
+    $path = if ($p) {
+        if ($v) { Write-Host "PATH défini par paramètre : $p" }
+        if (Test-Path $p) {
+            if ($2) { [string](Resolve-Path $p) } else { (Resolve-Path $p).Path }
+        } else {
+            Write-Error "Le chemin spécifié n'existe pas : $p"
+            return
+        }
+    } else {
+        if ($v) { Write-Host "PATH non défini : utilisation du répertoire courant" }
+        if ($2) { [string](Get-Location) } else { (Get-Location).Path }
+    }
+
+    # Exclusions
+    $exclude = @()
+    if (-not $a) { $exclude += "AppData" }
+    if ($x) { $exclude += $x }
+
+    if ($v) {
+        Write-Host "=== PARAMETRES DE RECHERCHE ==="
+        Write-Host "Chemin de recherche : $path"
+        Write-Host "Termes recherchés : [$($terms -join ', ')]"
+        Write-Host "Termes d'exclusion : [$($exclude -join ', ')]"
+        Write-Host "Mode PowerShell : $(if ($2) { '2.0 (compatibilite)' } else { '5.0+ (optimise)' })"
+        Write-Host "Mode de recherche : $(if ($split) { 'Split (tout le chemin)' } else { 'Bloc (même dossier/fichier)' })"
+        Write-Host "=== DEBUT DE LA RECHERCHE ==="
+    }
+
+    try {
+        $results = Get-ChildItem -Recurse -Path $path -ErrorAction SilentlyContinue | Where-Object {
+            $fullPath = $_.FullName
+            if ($v) { Write-Host "Examen de : $fullPath" }
+            foreach ($excludeTerm in $exclude) {
+                if ($fullPath -like "*$excludeTerm*") {
+                    if ($v) { Write-Host "  [EXCLUSION] Terme '$excludeTerm' trouvé dans le chemin" }
+                    return $false
+                }
+            }
+
+            if ($split) {
+                # Ancien comportement : tous les termes quelque part dans le chemin
+                foreach ($term in $terms) {
+                    if ($fullPath -notlike "*$term*") {
+                        if ($v) { Write-Host "  [REJET] Terme '$term' absent du chemin" }
+                        return $false
+                    }
+                }
+            } else {
+                # Nouveau comportement : tous les termes dans un même bloc (dossier ou nom de fichier)
+                # On découpe le chemin sur / ou \ (pour compatibilité Windows/Linux)
+                $blocks = $fullPath -split '[\\/]' 
+                $found = $false
+                foreach ($block in $blocks) {
+                    $allTerms = $true
+                    foreach ($term in $terms) {
+                        if ($block -notlike "*$term*") {
+                            $allTerms = $false
+                            break
+                        }
+                    }
+                    if ($allTerms) {
+                        $found = $true
+                        break
+                    }
+                }
+                if (-not $found) {
+                    if ($v) { Write-Host "  [REJET] Aucun bloc ne contient tous les termes" }
+                    return $false
+                }
+            }
+
+            if ($v) { Write-Host "  [MATCH] Tous les termes trouvés" }
+            return $true
+        }
+
+        $count = 0
+        if ($v) { Write-Host "=== RESULTATS ===" }
+        foreach ($result in $results) {
+            $count++
+            if ($v) {
+                Write-Host "[$count] RESULTAT : $($result.FullName)"
+            } else {
+                Write-Output $result.FullName
+            }
+        }
+        if ($v) {
+            Write-Host "=== STATISTIQUES FINALES ==="
+            Write-Host "Total d'éléments trouvés : $count"
+            Write-Host "=== FIN DE LA RECHERCHE ==="
+        }
+    } catch {
+        Write-Error "Erreur lors de la recherche : $($_.Exception.Message)"
+        if ($v) { Write-Host "Détails de l'erreur : $($_.Exception)" }
+    }
+}
