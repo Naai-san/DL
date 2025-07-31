@@ -13,3 +13,9 @@ Convention d’accès fichier : ::"nom" = fichier à la racine de Naai-san/D
 J'utilise Powershell Windows 11 VS2022 Scoop.
 Définition d'une fonction personnalisée IDS {
 à partir d'une liste de noms et prénoms, définis quels sont les prénoms et les noms puis retourne moi la liste des identifiants (= initiale du prénom s'il n'y en a qu'un ou des initiales des prénoms séparées par tirets s'il y a composition de plusieurs prénoms).(nom) séparés par ";".}
+
+
+J'utilise Powershell (pas pwsh, pas powershell 7+).
+Je développe sous Windows 11 avec Visual Studio 2022 et j'ai Scoop.
+
+Pose moi des questions tant que tu as le moindre doute sur l'interprétation de ce que je dis. Pour que mes questions puissent le mieux être alignées avec la façon dont tu es conçu pour obtenir un résultat optimal.
