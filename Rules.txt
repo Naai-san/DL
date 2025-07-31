@@ -9,12 +9,7 @@ Sinon : corriger immédiatement la réponse.
 2. Preuve de compréhension: Lis et respecte [test.md](https://github.com/Naai-san/DL/blob/2b5da4f73aac80b25325c8d22a5280c9500da5d4/test.md).
 ---> second 2. pour RL
 
-
-Convention d’accès fichier :
-::"nom" → fichier à la racine de Naai-san/DL nommé exactement nom
-::"chemin/vers/fichier" → fichier dans le sous-dossier chemin/vers/ à la racine de Naai-san/DL
-Si référence à chemin local tel que (exemple) :
-C:\Users\m.raynaud\Documents\DL\modeles\modele1-o.txt
-C'est que le dossier DL est synchronisé avec GIT. Tu peux convertir C:\Users\m.raynaud\Documents\DL\ pour chercher dans Naai-san/DL.
-Les guillemets sont obligatoires, l’extension est prise telle quelle (ou absente).
-Convention valable pour toute la session. Une mention est obligatoire en cas d'échec.
+Convention d’accès fichier : ::"nom" = fichier à la racine de Naai-san/DL ::"chemin/vers/fichier" = fichier dans Naai-san/DL/chemin/vers/ Une référence locale du type C:\Users...\DL... correspond à Naai-san/DL/... Guillemets obligatoires, extension prise telle quelle. Convention active toute la session. Mention si échec.
+J'utilise Powershell Windows 11 VS2022 Scoop.
+Définition d'une fonction personnalisée IDS {
+à partir d'une liste de noms et prénoms, définis quels sont les prénoms et les noms puis retourne moi la liste des identifiants (= initiale du prénom s'il n'y en a qu'un ou des initiales des prénoms séparées par tirets s'il y a composition de plusieurs prénoms).(nom) séparés par ";".}
